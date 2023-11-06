@@ -18,7 +18,7 @@ export default function Sidebar({ open, onClose }: any) {
     <>
       <StyledDrawer open={open} onClose={onClose}>
         <List>
-          <ListItemButton onClick={test}>
+          <ListItemButton>
             <ListItemText primary="Home" />
           </ListItemButton>
           <Divider />

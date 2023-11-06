@@ -13,6 +13,7 @@ import { ThemeProvider } from '@emotion/react'
 
 import { createTheme } from '@mui/material/styles'
 import { themeOptions } from './themeSettings'
+import TopBar from './components/TopBar'
 
 const theme = createTheme(themeOptions)
 
@@ -26,18 +27,7 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              onClick={toggleSidebar}
-            >
-              <MenuIcon />
-            </IconButton>
-          </Toolbar>
-        </AppBar>
+        <TopBar toggle={toggleSidebar} />
         <Sidebar open={sidebarOpen} onClose={toggleSidebar} />
       </ThemeProvider>
     </>
