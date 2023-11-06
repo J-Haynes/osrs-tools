@@ -4,19 +4,25 @@ import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
 import ListItemText from '@mui/material/ListItemText'
 
+import { styled } from '@mui/system'
+
+const StyledDrawer = styled(Drawer)({
+  width: '250px', // Adjust the width as needed
+})
+
 export default function Sidebar({ open, onClose }: any) {
   return (
     <>
-      <Drawer open={open} onClose={onClose}>
+      <StyledDrawer open={open} onClose={onClose}>
         <List>
           <ListItem>
             <ListItemText primary="Home" />
           </ListItem>
           <ListItem>
-            <ListItemText primary="About" />
+            <ListItemText primary="Combat Calculator" />
           </ListItem>
         </List>
-      </Drawer>
+      </StyledDrawer>
     </>
   )
 }
