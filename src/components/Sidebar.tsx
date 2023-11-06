@@ -9,14 +9,26 @@ import { Divider, ListItemButton, ListItemIcon } from '@mui/material'
 
 import Leaderboard from '@mui/icons-material/Leaderboard'
 
-const StyledDrawer = styled(Drawer)({
-  width: '250px', // Adjust the width as needed
-})
+// const StyledDrawer = styled(Drawer)({
+//   width: '250px', // Adjust the width as needed
+// })
+
+const drawWidth = 250
+
+const drawerBackdropProps = {
+  invisible: true,
+}
 
 export default function Sidebar({ open, onClose }: any) {
   return (
     <>
-      <StyledDrawer open={open} onClose={onClose}>
+      <Drawer
+        open={open}
+        onClose={onClose}
+        BackdropProps={drawerBackdropProps}
+        sx={{ width: drawWidth, flexShrink: 0 }}
+        anchor="left"
+      >
         <List>
           <ListItemButton>
             <ListItemText primary="Home" />
@@ -29,7 +41,7 @@ export default function Sidebar({ open, onClose }: any) {
             <ListItemText primary="Combat Calculator" />
           </ListItemButton>
         </List>
-      </StyledDrawer>
+      </Drawer>
     </>
   )
 }
