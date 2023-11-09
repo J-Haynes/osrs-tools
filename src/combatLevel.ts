@@ -1,4 +1,12 @@
-function combat_level(attack, strength, defence, ranged, magic, prayer) {
+export default function combat_level(
+  attack: number,
+  strength: number,
+  defence: number,
+  ranged: number,
+  magic: number,
+  prayer: number,
+  hitpoints: number
+) {
   let base = (defence + hitpoints + Math.trunc(prayer / 2)) / 4
   let melee = (13 / 40) * (attack + strength)
   let ranger = (13 / 40) * (ranged * 1.5)
