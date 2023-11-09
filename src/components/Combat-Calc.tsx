@@ -7,7 +7,7 @@ import FormControl from '@mui/material/FormControl'
 import combat_level from '../combatLevel'
 
 export default function Combatlevel() {
-  let combat_level = '3.40'
+  let [combatLevel, setCombatLevel] = useState(3.4)
 
   let [stats, setStats] = useState({
     Attack: 1,
@@ -21,7 +21,22 @@ export default function Combatlevel() {
 
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setStats({ ...stats, [e.target.id]: e.target.value })
+  }
+
+  const calculateCombat = () => {
     console.log(stats)
+    console.log('test')
+    setCombatLevel(
+      combat_level(
+        Number(stats.Attack),
+        Number(stats.Strength),
+        Number(stats.Defence),
+        Number(stats.Hitpoints),
+        Number(stats.Ranged),
+        Number(stats.Magic),
+        Number(stats.Prayer)
+      )
+    )
   }
 
   return (
@@ -89,14 +104,16 @@ export default function Combatlevel() {
             defaultValue={1}
             required
           />
-          <Button variant={'contained'}>Calculate</Button>
+          <Button variant={'contained'} onClick={calculateCombat}>
+            Calculate
+          </Button>
         </FormControl>
       </Box>
       <Divider />
       <Box>
         <Typography
           text-align={'center'}
-        >{`Your combat level is ${combat_level}`}</Typography>
+        >{`Your combat level is ${combatLevel}`}</Typography>
       </Box>
     </Box>
   )
