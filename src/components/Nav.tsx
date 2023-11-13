@@ -27,23 +27,23 @@ const drawerWidth = 240
 const drawer = (
   <div>
     <List disablePadding>
-      <ListItemButton LinkComponent={Router}>
+      <ListItemButton component={Link} to="/">
         <ListItemText primary="Home" />
       </ListItemButton>
       <Divider />
-      <ListItemButton>
+      <ListItemButton component={Link} to="combat-calculator">
         <ListItemIcon>
           <Leaderboard />
         </ListItemIcon>
         <ListItemText primary="Combat Calculator" />
       </ListItemButton>
-      <ListItemButton>
+      <ListItemButton component={Link} to="melee-max-hit">
         <ListItemIcon>
           <LooksOne />
         </ListItemIcon>
         <ListItemText primary="Melee Max hit" />
       </ListItemButton>
-      <ListItemButton>
+      <ListItemButton component={Link} to="ranged-max-hit">
         <ListItemIcon>
           <LooksTwo />
         </ListItemIcon>
