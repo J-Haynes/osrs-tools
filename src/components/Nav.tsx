@@ -6,6 +6,8 @@ import ListItemText from '@mui/material/ListItemText'
 import MenuIcon from '@mui/icons-material/Menu'
 import { Box, Typography } from '@mui/material'
 
+import { Link, Outlet, Router } from 'react-router-dom'
+
 import { styled } from '@mui/system'
 import {
   AppBar,
@@ -17,13 +19,15 @@ import {
 } from '@mui/material'
 
 import Leaderboard from '@mui/icons-material/Leaderboard'
+import LooksOne from '@mui/icons-material/Leaderboard'
+import LooksTwo from '@mui/icons-material/Leaderboard'
 
 const drawerWidth = 240
 
 const drawer = (
   <div>
-    <List>
-      <ListItemButton>
+    <List disablePadding>
+      <ListItemButton LinkComponent={Router}>
         <ListItemText primary="Home" />
       </ListItemButton>
       <Divider />
@@ -32,6 +36,18 @@ const drawer = (
           <Leaderboard />
         </ListItemIcon>
         <ListItemText primary="Combat Calculator" />
+      </ListItemButton>
+      <ListItemButton>
+        <ListItemIcon>
+          <LooksOne />
+        </ListItemIcon>
+        <ListItemText primary="Melee Max hit" />
+      </ListItemButton>
+      <ListItemButton>
+        <ListItemIcon>
+          <LooksTwo />
+        </ListItemIcon>
+        <ListItemText primary="Ranged Max hit" />
       </ListItemButton>
     </List>
   </div>
@@ -78,7 +94,7 @@ export default function Nav() {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
