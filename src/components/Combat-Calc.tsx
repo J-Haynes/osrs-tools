@@ -39,6 +39,19 @@ export default function Combatlevel() {
     )
   }
 
+  const resetStats = () => {
+    console.log('hi')
+    setStats({
+      Attack: 1,
+      Strength: 1,
+      Defence: 1,
+      Hitpoints: 10,
+      Ranged: 1,
+      Magic: 1,
+      Prayer: 1,
+    })
+  }
+
   return (
     <Box>
       <Box
@@ -56,56 +69,21 @@ export default function Combatlevel() {
           variant="outlined"
           margin="normal"
         >
-          <TextField
-            id="Attack"
-            label="Attack"
-            type="number"
-            defaultValue={1}
-          />
-          <TextField
-            id="Strength"
-            label="Strength"
-            type="number"
-            defaultValue={1}
-            required
-          />
-          <TextField
-            id="Defence"
-            label="Defence"
-            type="number"
-            defaultValue={1}
-            required
-          />
-          <TextField
-            id="Hitpoints"
-            label="Hitpoints"
-            type="number"
-            defaultValue={10}
-            required
-          />
-          <TextField
-            id="Ranged"
-            label="Ranged"
-            type="number"
-            defaultValue={1}
-            required
-          />
-          <TextField
-            id="Magic"
-            label="Magic"
-            type="number"
-            defaultValue={1}
-            required
-          />
-          <TextField
-            id="Prayer"
-            label="Prayer"
-            type="number"
-            defaultValue={1}
-            required
-          />
+          {Object.entries(stats).map(([key, value]) => (
+            <TextField
+              key={key}
+              id={key}
+              label={key}
+              type="number"
+              value={value}
+              onChange={changeHandler}
+            />
+          ))}
           <Button variant={'contained'} onClick={calculateCombat}>
             Calculate
+          </Button>
+          <Button variant={'outlined'} onClick={resetStats}>
+            Reset
           </Button>
         </FormControl>
       </Box>
