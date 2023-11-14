@@ -67,6 +67,7 @@ export default function Combatlevel() {
         borderRadius={'5px'}
         width={'250px'}
         margin={'auto'}
+        marginBottom={'20px'}
       >
         <FormControl
           onChange={changeHandler}

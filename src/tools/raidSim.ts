@@ -12,12 +12,16 @@ export function cox(points: number, numberOfRaids: number) {
     elderMaul: 0,
     kodai: 0,
     twistedBow: 0,
+    olmlet: 0,
   }
 
   let percentageChance = (points / 867600) * 100
 
   for (let i = 0; i < numberOfRaids; i++) {
     if (Math.random() * 100 + 1 < percentageChance) {
+      if (Math.trunc(Math.random() * 54 + 1) === 53) {
+        loot.olmlet++
+      }
       let randomLoot = Math.trunc(Math.random() * 69 + 1)
       if (randomLoot <= 20) {
         loot.dex++

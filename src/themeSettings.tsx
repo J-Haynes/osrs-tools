@@ -1,8 +1,8 @@
-import { ThemeOptions } from '@mui/material'
+import { ThemeOptions } from '@mui/material/styles'
 
 export const themeOptions: ThemeOptions = {
   palette: {
-    mode: 'light',
+    mode: 'dark',
     primary: {
       main: '#ff5277',
     },

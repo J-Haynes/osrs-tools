@@ -8,6 +8,7 @@ import { ThemeProvider } from '@emotion/react'
 import { createTheme } from '@mui/material/styles'
 import { themeOptions } from './themeSettings'
 import { Box, Typography } from '@mui/material'
+import CssBaseline from '@mui/material/CssBaseline'
 
 import { Routes, Route, Outlet } from 'react-router-dom'
 import Home from './components/Home'
@@ -23,6 +24,7 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
+        <CssBaseline />
         <Box display={'flex'}>
           <Nav />
           <Box
