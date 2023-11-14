@@ -4,7 +4,7 @@ import { useState, ChangeEvent } from 'react'
 import { Box, TextField, Typography, Divider, Button } from '@mui/material'
 import FormControl from '@mui/material/FormControl'
 
-import combat_level from '../combatLevel'
+import combat_level from '../tools/combatLevel'
 
 export default function Combatlevel() {
   let [combatLevel, setCombatLevel] = useState(3.4)
@@ -63,6 +63,10 @@ export default function Combatlevel() {
         justifyContent={'center'}
         noValidate
         autoComplete="off"
+        border={'1px solid pink'}
+        borderRadius={'5px'}
+        width={'250px'}
+        margin={'auto'}
       >
         <FormControl
           onChange={changeHandler}
@@ -79,16 +83,24 @@ export default function Combatlevel() {
               onChange={changeHandler}
             />
           ))}
-          <Button variant={'contained'} onClick={calculateCombat}>
+          <Button
+            variant={'contained'}
+            onClick={calculateCombat}
+            sx={{ padding: '10px', margin: '10px' }}
+          >
             Calculate
           </Button>
-          <Button variant={'outlined'} onClick={resetStats}>
+          <Button
+            variant={'outlined'}
+            onClick={resetStats}
+            sx={{ padding: '10px', margin: '10px' }}
+          >
             Reset
           </Button>
         </FormControl>
       </Box>
       <Divider />
-      <Box>
+      <Box display={'flex'} justifyContent={'center'} paddingTop={'15px'}>
         <Typography
           text-align={'center'}
         >{`Your combat level is ${combatLevel}`}</Typography>
