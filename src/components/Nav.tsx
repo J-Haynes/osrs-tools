@@ -19,8 +19,9 @@ import {
 } from '@mui/material'
 
 import Leaderboard from '@mui/icons-material/Leaderboard'
-import LooksOne from '@mui/icons-material/Leaderboard'
-import LooksTwo from '@mui/icons-material/Leaderboard'
+import LooksOne from '@mui/icons-material/LooksOne'
+import LooksTwo from '@mui/icons-material/LooksTwo'
+import Looks3 from '@mui/icons-material/Looks3'
 
 const drawerWidth = 240
 
@@ -48,6 +49,13 @@ const drawer = (
           <LooksTwo />
         </ListItemIcon>
         <ListItemText primary="Ranged Max hit" />
+      </ListItemButton>
+      <Divider />
+      <ListItemButton component={Link} to="cox">
+        <ListItemIcon>
+          <Looks3 />
+        </ListItemIcon>
+        <ListItemText primary="Cox Simulator" />
       </ListItemButton>
     </List>
   </div>

@@ -13,6 +13,7 @@ import { Routes, Route, Outlet } from 'react-router-dom'
 import Home from './components/Home'
 import MeleeMax from './components/Melee-Max'
 import RangedMax from './components/Ranged-Max'
+import CoxSim from './components/CoxSim'
 
 const theme = createTheme(themeOptions)
 
@@ -38,6 +39,7 @@ function App() {
               <Route path="combat-calculator" element={<Combatlevel />} />
               <Route path="melee-max-hit" element={<MeleeMax />} />
               <Route path="ranged-max-hit" element={<RangedMax />} />
+              <Route path="cox" element={<CoxSim />} />
             </Routes>
             <Outlet />
           </Box>
