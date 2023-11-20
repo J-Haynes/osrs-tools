@@ -1,5 +1,6 @@
 import {
   Box,
+  Divider,
   FormControl,
   Input,
   InputLabel,
@@ -7,16 +8,19 @@ import {
   Select,
   SelectChangeEvent,
   TextField,
+  Typography,
 } from '@mui/material'
 import React, { ChangeEvent, useState } from 'react'
 
 export default function MeleeMax() {
+  let [maxHit, setMaxHit] = useState('0')
+
   let [params, setParams] = useState({
     strengthLevel: '1',
     style: 'Aggressive',
     potion: 'None',
     prayer: 'None',
-    strengthBonus: 0,
+    strengthBonus: '0',
   })
 
   const strengthHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -33,6 +37,10 @@ export default function MeleeMax() {
 
   const prayerHandler = (e: SelectChangeEvent<string>) => {
     setParams({ ...params, prayer: e.target.value })
+  }
+
+  const strengthBonusHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    setParams({ ...params, strengthBonus: e.target.value })
   }
 
   return (
@@ -54,6 +62,7 @@ export default function MeleeMax() {
         alignItems={'center'}
         paddingLeft={'100px'}
         paddingRight={'100px'}
+        marginBottom={'20px'}
       >
         <FormControl variant="outlined" margin="normal" fullWidth>
           <TextField
@@ -112,6 +121,20 @@ export default function MeleeMax() {
             <MenuItem value={'Piety'}>Piety</MenuItem>
           </Select>
         </FormControl>
+
+        <FormControl variant="outlined" margin="normal" fullWidth>
+          <TextField
+            label={'Strength Bonus'}
+            value={params.strengthBonus}
+            onChange={strengthBonusHandler}
+          />
+        </FormControl>
+      </Box>
+      <Divider />
+      <Box display={'flex'} justifyContent={'center'} paddingTop={'15px'}>
+        <Typography
+          text-align={'center'}
+        >{`Your max hit is ${maxHit}`}</Typography>
       </Box>
     </Box>
   )
