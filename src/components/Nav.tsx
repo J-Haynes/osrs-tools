@@ -22,6 +22,8 @@ import Leaderboard from '@mui/icons-material/Leaderboard'
 import LooksOne from '@mui/icons-material/LooksOne'
 import LooksTwo from '@mui/icons-material/LooksTwo'
 import Looks3 from '@mui/icons-material/Looks3'
+import Looks4 from '@mui/icons-material/Looks4'
+import { Looks4Outlined } from '@mui/icons-material'
 
 const drawerWidth = 240
 
@@ -56,6 +58,12 @@ const drawer = (
           <Looks3 />
         </ListItemIcon>
         <ListItemText primary="Cox Simulator" />
+      </ListItemButton>
+      <ListItemButton component={Link} to="world-tracker">
+        <ListItemIcon>
+          <Looks4 />
+        </ListItemIcon>
+        <ListItemText primary="World Tracker" />
       </ListItemButton>
     </List>
   </div>

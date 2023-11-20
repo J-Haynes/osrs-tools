@@ -15,6 +15,7 @@ import Home from './components/Home'
 import MeleeMax from './components/Melee-Max'
 import RangedMax from './components/Ranged-Max'
 import CoxSim from './components/CoxSim'
+import WorldTracker from './components/WorldTracker'
 
 const theme = createTheme(themeOptions)
 
@@ -42,6 +43,7 @@ function App() {
               <Route path="melee-max-hit" element={<MeleeMax />} />
               <Route path="ranged-max-hit" element={<RangedMax />} />
               <Route path="cox" element={<CoxSim />} />
+              <Route path="world-tracker" element={<WorldTracker />} />
             </Routes>
             <Outlet />
           </Box>
