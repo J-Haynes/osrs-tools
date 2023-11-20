@@ -5,7 +5,7 @@ export function meleeMaxHit(
   prayer: string,
   strengthBonus: string
 ) {
-  let effectiveStrength = Number(strengthLevel) + 8
+  let effectiveStrength = Number(strengthLevel)
 
   // potions
 
@@ -29,13 +29,15 @@ export function meleeMaxHit(
     effectiveStrength = effectiveStrength * 1.23
   }
 
+  effectiveStrength = Math.trunc(effectiveStrength)
+
   // style
 
   if (style === 'Aggressive') {
-    effectiveStrength += 3
+    effectiveStrength += 11
   } else if (style === 'Controlled') {
-    effectiveStrength += 1
-  }
+    effectiveStrength += 9
+  } else effectiveStrength += 8
 
   // damage
 

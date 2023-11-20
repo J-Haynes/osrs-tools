@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Divider,
   FormControl,
   Input,
@@ -12,8 +13,10 @@ import {
 } from '@mui/material'
 import React, { ChangeEvent, useState } from 'react'
 
+import { meleeMaxHit } from '../tools/meleeMaxHit'
+
 export default function MeleeMax() {
-  let [maxHit, setMaxHit] = useState('0')
+  let [maxHit, setMaxHit] = useState(0)
 
   let [params, setParams] = useState({
     strengthLevel: '1',
@@ -22,6 +25,18 @@ export default function MeleeMax() {
     prayer: 'None',
     strengthBonus: '0',
   })
+
+  const calculateMeleeMaxHit = () => {
+    setMaxHit(
+      meleeMaxHit(
+        params.strengthLevel,
+        params.style,
+        params.potion,
+        params.prayer,
+        params.strengthBonus
+      )
+    )
+  }
 
   const strengthHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setParams({ ...params, strengthLevel: e.target.value })
@@ -129,6 +144,13 @@ export default function MeleeMax() {
             onChange={strengthBonusHandler}
           />
         </FormControl>
+        <Button
+          variant={'contained'}
+          onClick={calculateMeleeMaxHit}
+          sx={{ padding: '10px', margin: '10px' }}
+        >
+          Calculate
+        </Button>
       </Box>
       <Divider />
       <Box display={'flex'} justifyContent={'center'} paddingTop={'15px'}>
