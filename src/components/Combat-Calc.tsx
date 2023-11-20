@@ -63,7 +63,7 @@ export default function Combatlevel() {
         justifyContent={'center'}
         noValidate
         autoComplete="off"
-        border={'1px solid pink'}
+        border={'1px solid #ff5277'}
         borderRadius={'5px'}
         width={'250px'}
         margin={'auto'}
