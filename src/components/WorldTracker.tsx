@@ -24,6 +24,12 @@ export default function WorldTracker() {
     }
   }
 
+  const test = async () => {
+    const response = await axios.get('http://localhost:4000')
+
+    console.log(response.data)
+  }
+
   return (
     <Box
       display={'flex'}
@@ -33,6 +39,9 @@ export default function WorldTracker() {
     >
       World Tracker
       <Button variant={'outlined'} onClick={worldTracker}>
+        Button
+      </Button>
+      <Button variant={'outlined'} onClick={test}>
         Button
       </Button>
     </Box>
