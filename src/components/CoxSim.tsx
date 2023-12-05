@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { cox } from '../tools/raidSim'
+// import { cox } from '../tools/raidSim'
 import { Box } from '@mui/material'
 
 export default function CoxSim() {
