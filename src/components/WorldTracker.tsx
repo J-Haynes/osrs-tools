@@ -7,17 +7,26 @@ import axios from 'axios'
 export default function WorldTracker() {
   const worldTracker = async () => {
     try {
-      const response = await axios.get('https://backend.jackhaynes.dev/proxy')
+      const response = await axios.get('http://localhost:5000/proxy')
 
       const $ = cheerio.load(response.data)
 
       const dataObject = {} as any
       $('table tr').each((index, element) => {
         const columns = $(element).find('td')
-        const key = $(columns[0]).text().trim()
-        const value = $(columns[1]).text().trim()
+        const key = Number(
+          $(columns[0])
+            .text()
+            .trim()
+            .replace('Old School ', '')
+            .replace('OldSchool ', '')
+        )
+        const value = Number(
+          $(columns[1]).text().trim().replace(' players', '')
+        )
         dataObject[key] = value
       })
+      delete dataObject[0]
       console.log('Data Object:', dataObject)
     } catch (error) {
       console.error('Error fetching', error)
@@ -25,7 +34,7 @@ export default function WorldTracker() {
   }
 
   const test = async () => {
-    const response = await axios.get('http://localhost:4000/')
+    const response = await axios.get('http://localhost:5000/')
 
     console.log(response.data)
   }
