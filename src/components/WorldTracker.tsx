@@ -7,7 +7,7 @@ import axios from 'axios'
 export default function WorldTracker() {
   const worldTracker = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/proxy')
+      const response = await axios.get('https://backend.jackhaynes.dev/proxy')
 
       const $ = cheerio.load(response.data)
 
@@ -25,7 +25,7 @@ export default function WorldTracker() {
   }
 
   const test = async () => {
-    const response = await axios.get('http://localhost:4000')
+    const response = await axios.get('http://localhost:4000/')
 
     console.log(response.data)
   }
