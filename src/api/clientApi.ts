@@ -3,8 +3,7 @@ import * as cheerio from 'cheerio'
 
 export const fetchWorlds = async () => {
   try {
-    const response = await axios.get('http://localhost:5000/proxy')
-
+    const response = await axios.get('https://backend.jackhaynes.dev/proxy/')
     const $ = cheerio.load(response.data)
 
     const dataObject = {} as any
@@ -22,7 +21,6 @@ export const fetchWorlds = async () => {
       dataObject[key] = value
     })
     delete dataObject[300]
-    console.log(dataObject)
     return dataObject
   } catch (error) {
     console.error('Error fetching', error)

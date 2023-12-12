@@ -34,53 +34,20 @@ export default function WorldTracker() {
     0, 0, 0, 0, 0, 0, 0,
   ])
 
-  // const startTrack = () => {
-  //   console.log('started! 😎')
-  //   fetchWorlds().then((worlds) => {
-  //     setWorldPopulation(Object.values(worlds))
-  //     console.log(worldPopulation)
-  //   })
+  const [fetchingWorlds, setFetchingWorlds] = useState(false)
 
-  //   while (started > 0) {
-  //     setTimeout(() => {
-  //       fetchWorlds().then((worlds) => {
-  //         setWorldPopulationDifference(
-  //           worldPopulation.map((world, key) => world - worlds[key])
-  //         )
-  //       })
-  //       console.log('world diff', worldPopulationDifference)
-  //       setStarted(started - 1)
-  //     }, 7500)
-  //   }
-  // }
+  const test = () => {
+    setFetchingWorlds(!fetchingWorlds)
+  }
 
-  const [isTracking, setIsTracking] = useState(false)
-
-  // useEffect(() => {
-  //   let intervalID: string | number | NodeJS.Timeout | undefined
-
-  //   const trackWorlds = async () => {
-  //     if (isTracking) {
-  //       const worlds = await Object.values(fetchWorlds())
-  //       setWorldPopulationDifference(
-  //         worldPopulation.map((world, key) => world - worlds[key])
-  //       )
-  //     }
-  //   }
-  //   intervalID = setInterval(trackWorlds, 7500)
-
-  //   return () => clearInterval(intervalID)
-  // }, [isTracking, worldPopulation])
-
-  // const startTrack = () => {
-  //   console.log('started! 😎')
-  //   fetchWorlds().then((worlds) => {
-  //     setWorldPopulation(Object.values(worlds))
-  //     console.log(worldPopulation)
-  //   })
-
-  //   setIsTracking(!isTracking)
-  // }
+  useEffect(() => {
+    if (fetchingWorlds) {
+      const intervalId = setInterval(() => {
+        console.log('hi')
+      }, 1000)
+      return () => clearInterval(intervalId)
+    }
+  }, [fetchingWorlds])
 
   return (
     <Box
@@ -90,9 +57,10 @@ export default function WorldTracker() {
       flexDirection={'column'}
     >
       World Tracker
-      <Button variant={'outlined'} onClick={() => startTrack}>
+      <Button variant={'outlined'} onClick={test}>
         Button
       </Button>
+      {fetchingWorlds ? 'fetching!' : 'not fetching!'}
       {worldPopulationDifference.map((populations) => (
         <p>{populations}</p>
       ))}
