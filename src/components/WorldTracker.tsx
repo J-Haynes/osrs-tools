@@ -68,18 +68,20 @@ export default function WorldTracker() {
       alignItems={'center'}
       flexDirection={'column'}
     >
-      <Button
-        variant={'outlined'}
-        onClick={test}
-        color={fetchingWorlds ? 'error' : 'success'}
-      >
-        {fetchingWorlds ? 'Disable Fetching' : 'Enable Fetching'}
-      </Button>
+      <Box margin={'10px'}>
+        <Button
+          variant={'outlined'}
+          onClick={test}
+          color={fetchingWorlds ? 'error' : 'success'}
+        >
+          {fetchingWorlds ? 'Disable Fetching' : 'Enable Fetching'}
+        </Button>
+      </Box>
       <Grid container spacing={0.2}>
         {worldPopulation.map((population, index) => (
           <Grid
             item
-            xs={2}
+            xs={1.5}
             color={spanColour(worldPopulationDifference[index])}
           >
             <span style={{ color: '#ff5277' }}>
