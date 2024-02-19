@@ -6,7 +6,7 @@ import ListItemText from '@mui/material/ListItemText'
 import MenuIcon from '@mui/icons-material/Menu'
 import { Box, Typography } from '@mui/material'
 
-import { Link, Outlet, Router } from 'react-router-dom'
+import { Link, Outlet, Router, useLocation } from 'react-router-dom'
 
 import { styled } from '@mui/system'
 import {
@@ -24,8 +24,28 @@ import LooksTwo from '@mui/icons-material/LooksTwo'
 import Looks3 from '@mui/icons-material/Looks3'
 import Looks4 from '@mui/icons-material/Looks4'
 import { Looks4Outlined } from '@mui/icons-material'
+import { StringLiteralLike } from 'typescript'
 
 const drawerWidth = 240
+
+const getTitle = (pathname: string) => {
+  switch (pathname) {
+    case '/':
+      return 'PgOsrs Tools'
+    case '/combat-calculator':
+      return 'Combat Calculator'
+    case '/melee-max-hit':
+      return 'Melee Max hit'
+    case '/ranged-max-hit':
+      return 'Ranged Max hit'
+    case '/cox':
+      return 'Cox Simulator'
+    case '/world-tracker':
+      return 'World Tracker'
+    default:
+      return 'PgOsrs Tools'
+  }
+}
 
 const drawer = (
   <div>
@@ -75,6 +95,10 @@ export default function Nav() {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
   }
+
+  const location = useLocation()
+  const title = getTitle(location.pathname)
+
   return (
     <>
       <AppBar
@@ -95,7 +119,7 @@ export default function Nav() {
             <MenuIcon />
           </IconButton>
           <Typography align="center" noWrap component="div">
-            Test here
+            {title}
           </Typography>
         </Toolbar>
       </AppBar>
