@@ -387,8 +387,8 @@ export default function WorldTracker() {
             color={spanColour(worldPopulationDifference[index])}
           >
             <span style={{ color: '#ff5277' }}>{`${worldList[index]}: `}</span>
-            <span>{`${population} ; `}</span>
-            <span>{`${worldPopulationDifference[index]}`}</span>
+            {/* <span>{`${population} ; `}</span> */}
+            <span>{`   ${worldPopulationDifference[index]}`}</span>
           </Grid>
         ))}
       </Grid>
