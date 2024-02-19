@@ -374,9 +374,12 @@ export default function WorldTracker() {
       alignItems={'center'}
       flexDirection={'column'}
     >
-      World Tracker
-      <Button variant={'outlined'} onClick={test}>
-        Button
+      <Button
+        variant={'outlined'}
+        onClick={test}
+        color={fetchingWorlds ? 'error' : 'success'}
+      >
+        {fetchingWorlds ? 'Disable Fetching' : 'Enable Fetching'}
       </Button>
       {fetchingWorlds ? 'fetching!' : 'not fetching!'}
       <Grid container spacing={0.2}>
