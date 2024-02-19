@@ -301,6 +301,14 @@ export default function WorldTracker() {
     '580',
   ]
 
+  const spanColour = (difference: number) => {
+    if (difference > 25) {
+      return 'green'
+    } else if (difference < -25) {
+      return 'red'
+    }
+  }
+
   const [fetchingWorlds, setFetchingWorlds] = useState(false)
 
   const test = () => {
@@ -371,9 +379,13 @@ export default function WorldTracker() {
         Button
       </Button>
       {fetchingWorlds ? 'fetching!' : 'not fetching!'}
-      <Grid container spacing={1}>
+      <Grid container spacing={0.2}>
         {worldPopulation.map((population, index) => (
-          <Grid item xs={2}>
+          <Grid
+            item
+            xs={2}
+            color={spanColour(worldPopulationDifference[index])}
+          >
             <span style={{ color: '#ff5277' }}>{`${worldList[index]}: `}</span>
             <span>{`${population} ; `}</span>
             <span>{`${worldPopulationDifference[index]}`}</span>
