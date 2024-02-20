@@ -21,7 +21,6 @@ export const fetchWorldsApi = async () => {
       dataObject[key] = value
     })
     delete dataObject[300]
-    console.log('data obj', dataObject)
     return dataObject
   } catch (error) {
     console.error('Error fetching', error)

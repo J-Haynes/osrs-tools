@@ -22,5 +22,6 @@
   },
   "include": [
     "src"
-, "server"  ]
+, "server",
+"node_modules/@types"  ]
 }
