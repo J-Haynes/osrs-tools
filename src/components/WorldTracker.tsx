@@ -53,7 +53,7 @@ export default function WorldTracker() {
     if (fetchingWorlds) {
       intervalId = setInterval(() => {
         fetchData()
-      }, 20000)
+      }, 12000)
     }
     return () => clearInterval(intervalId)
   })
