@@ -1,3 +1,5 @@
+import { randomNumber } from './randomNumber'
+
 export function cox(points: number, numberOfRaids: number) {
   let loot = {
     dex: 0,
@@ -13,11 +15,48 @@ export function cox(points: number, numberOfRaids: number) {
     kodai: 0,
     twistedBow: 0,
     olmlet: 0,
+    resources: {
+      deathRune: 0,
+      bloodRune: 0,
+      soulRune: 0,
+      runeArrow: 0,
+      dragonArrow: 0,
+      ranarrWeed: 0,
+      toadflax: 0,
+      iritLeaf: 0,
+      avantoe: 0,
+      kwarm: 0,
+      snapdragon: 0,
+      cadantine: 0,
+      lantadyme: 0,
+      dwarfWeed: 0,
+      torstol: 0,
+      silver: 0,
+      coal: 0,
+      gold: 0,
+      mithril: 0,
+      adamantite: 0,
+      runite: 0,
+      sapphire: 0,
+      emerald: 0,
+      ruby: 0,
+      diamond: 0,
+      lizardmanFang: 0,
+      pureEssence: 0,
+      saltpetre: 0,
+      teakPlank: 0,
+      mahoganyPlank: 0,
+      dynamite: 0,
+      tornPrayerScroll: 0,
+      darkRelic: 0,
+    },
   }
 
   let percentageChance = (points / 867600) * 100
 
   for (let i = 0; i < numberOfRaids; i++) {
+    let resourceRoll = Math.random() * 33 + 1
+    let resourceRoll2 = Math.random() * 33 + 1
     if (Math.random() * 100 + 1 < percentageChance) {
       if (Math.trunc(Math.random() * 54 + 1) === 53) {
         loot.olmlet++
@@ -47,6 +86,23 @@ export function cox(points: number, numberOfRaids: number) {
         loot.kodai++
       } else if (randomLoot >= 68 && randomLoot <= 69) {
         loot.twistedBow++
+      }
+    } else {
+      if (resourceRoll === 1) {
+        loot.resources.deathRune =
+          loot.resources.deathRune + randomNumber(1, 3640)
+      } else if (resourceRoll === 2) {
+        loot.resources.bloodRune =
+          loot.resources.bloodRune + randomNumber(1, 4095)
+      } else if (resourceRoll === 3) {
+        loot.resources.soulRune =
+          loot.resources.soulRune + randomNumber(1, 6553)
+      } else if (resourceRoll === 4) {
+        loot.resources.soulRune =
+          loot.resources.soulRune + randomNumber(1, 6553)
+      } else if (resourceRoll === 5) {
+        loot.resources.runeArrow =
+          loot.resources.runeArrow + randomNumber(1, 6553)
       }
     }
   }
