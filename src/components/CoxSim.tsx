@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 
 import { cox } from '../tools/raidSim'
-import { Box, Button } from '@mui/material'
+import { Box, Button, Slider } from '@mui/material'
 
 export default function CoxSim() {
+  const [sliderValue, setSliderValue] = useState(100)
+
   const [loot, setLoot] = useState({
     dex: 0,
     arcane: 0,
@@ -63,6 +65,18 @@ export default function CoxSim() {
     setLoot(cox(33000, 100))
   }
 
+  function valuetext(value: number) {
+    return `${value}`
+  }
+
+  const raidX = () => {
+    setLoot(cox(33000, sliderValue))
+  }
+
+  function handleSliderChange(_event: any, newValue: any) {
+    setSliderValue(newValue)
+  }
+
   return (
     <Box
       display={'flex'}
@@ -76,6 +90,23 @@ export default function CoxSim() {
       <Button variant={'contained'} onClick={raid100}>
         Raid 100
       </Button>
+      <Box sx={{ width: 300 }}>
+        <Slider
+          value={sliderValue}
+          aria-label="Temperature"
+          defaultValue={100}
+          getAriaValueText={valuetext}
+          valueLabelDisplay="auto"
+          step={100}
+          onChange={handleSliderChange}
+          marks
+          min={100}
+          max={1000}
+        />
+        <Button variant={'contained'} onClick={raidX}>
+          Raid X
+        </Button>
+      </Box>
       <Box>
         <img src="./rewards2x.png" className="cox-loot" alt="loot chest" />
         <Box
@@ -106,8 +137,10 @@ export default function CoxSim() {
           zIndex={'0'}
         ></Box>
       </Box>
-      <p>Dex:</p>
-      <span>{loot.dex}</span>
+      <p>
+        Dex: <span>{loot.dex}</span>
+      </p>
+
       <p>Arcane:</p>
       <span>{loot.arcane}</span>
       <p>Twisted Buckler:</p>
